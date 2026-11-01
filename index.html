@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mr. Markter | Digital Marketing Expert</title>
+<style>
+  :root {
+    --primary: #1E56A0;
+    --primary-dark: #163D75;
+    --accent: #D4A537;
+    --bg: #FFFFFF;
+    --bg-soft: #F2F6FC;
+    --text: #1E1B2E;
+    --muted: #5E5A70;
+    --radius: 16px;
+    --shadow: 0 10px 30px rgba(30, 86, 160, 0.12);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.65;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  .container {
+    width: min(1100px, 92%);
+    margin: 0 auto;
+  }
+
+  section { padding: 80px 0; }
+
+  .section-title {
+    text-align: center;
+    margin-bottom: 14px;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    color: var(--text);
+  }
+
+  .section-subtitle {
+    text-align: center;
+    color: var(--primary);
+    font-weight: 600;
+    margin-bottom: 40px;
+    font-size: 1.1rem;
+  }
+
+  .label {
+    display: inline-block;
+    background: var(--bg-soft);
+    color: var(--primary);
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 14px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  /* Header */
+  header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    z-index: 100;
+  }
+
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+  }
+
+  .logo {
+    font-weight: 800;
+    font-size: 1.3rem;
+    color: var(--primary);
+    letter-spacing: 0.5px;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-weight: 500;
+    color: var(--muted);
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--primary); }
+
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    cursor: pointer;
+    color: var(--text);
+  }
+
+  /* Buttons */
+  .btn {
+    display: inline-block;
+    padding: 14px 30px;
+    border-radius: 999px;
+    font-weight: 600;
+    transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+    cursor: pointer;
+    border: none;
+    font-size: 1rem;
+  }
+
+  .btn-primary {
+    background: var(--primary);
+    color: #fff;
+    box-shadow: var(--shadow);
+  }
+
+  .btn-primary:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+  }
+
+  .btn-outline {
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    background: transparent;
+  }
+
+  .btn-outline:hover {
+    background: var(--primary);
+    color: #fff;
+  }
+
+  /* Hero */
+  .hero {
+    padding-top: 150px;
+    padding-bottom: 100px;
+    background: linear-gradient(135deg, #F2F6FC 0%, #FFFFFF 60%, #FFF8E7 100%);
+  }
+
+  .hero-content {
+    max-width: 760px;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.2rem, 6vw, 3.6rem);
+    line-height: 1.2;
+    margin-bottom: 18px;
+  }
+
+  .hero h1 span {
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .hero .tagline {
+    font-size: 1.15rem;
+    color: var(--primary);
+    font-weight: 600;
+    margin-bottom: 18px;
+  }
+
+  .hero p {
+    color: var(--muted);
+    font-size: 1.05rem;
+    margin-bottom: 34px;
+  }
+
+  .btn-group {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* About */
+  .about-box {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .about-box h3 {
+    font-size: 1.4rem;
+    margin-bottom: 18px;
+  }
+
+  .about-box p {
+    color: var(--muted);
+    margin-bottom: 18px;
+  }
+
+  .mission-vision {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+    margin-top: 40px;
+  }
+
+  .mv-card {
+    background: var(--bg-soft);
+    border-radius: var(--radius);
+    padding: 30px;
+    border-left: 5px solid var(--primary);
+  }
+
+  .mv-card h4 {
+    color: var(--primary);
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+  }
+
+  .mv-card p { color: var(--muted); }
+
+  /* Services */
+  .services { background: var(--bg-soft); }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 26px;
+  }
+
+  .service-card {
+    background: #fff;
+    border-radius: var(--radius);
+    padding: 32px 28px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.05);
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+
+  .service-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow);
+  }
+
+  .service-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    margin-bottom: 18px;
+  }
+
+  .service-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+
+  .service-card > p {
+    color: var(--muted);
+    margin-bottom: 14px;
+    font-size: 0.97rem;
+  }
+
+  .service-card ul {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .service-card li {
+    padding: 6px 0 6px 24px;
+    position: relative;
+    color: var(--muted);
+    font-size: 0.93rem;
+  }
+
+  .service-card li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+    font-weight: 700;
+  }
+
+  .ads-note {
+    text-align: center;
+    margin-top: 30px;
+    color: var(--muted);
+    font-size: 0.92rem;
+    font-style: italic;
+  }
+
+  /* Why choose us */
+  .features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 24px;
+  }
+
+  .feature {
+    text-align: center;
+    padding: 30px 22px;
+    border-radius: var(--radius);
+    border: 1px solid #DCE6F5;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .feature:hover {
+    border-color: var(--primary);
+    transform: translateY(-4px);
+  }
+
+  .feature .emoji {
+    font-size: 2.2rem;
+    margin-bottom: 12px;
+  }
+
+  .feature h4 {
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+  }
+
+  .feature p {
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+
+  .lead-text {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 50px;
+    color: var(--muted);
+  }
+
+  /* Who we work with */
+  .audience { background: var(--bg-soft); }
+
+  .audience-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    justify-content: center;
+    max-width: 880px;
+    margin: 0 auto;
+  }
+
+  .tag {
+    background: #fff;
+    padding: 14px 22px;
+    border-radius: 999px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+    font-weight: 500;
+    color: var(--text);
+  }
+
+  .audience-footer {
+    text-align: center;
+    margin-top: 40px;
+    color: var(--muted);
+  }
+
+  /* Process */
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 24px;
+    position: relative;
+  }
+
+  .step {
+    background: #fff;
+    border-radius: var(--radius);
+    padding: 30px 24px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.05);
+    text-align: center;
+    position: relative;
+  }
+
+  .step-number {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: #fff;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+  }
+
+  .step h4 {
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+  }
+
+  .step p {
+    color: var(--muted);
+    font-size: 0.93rem;
+  }
+
+  /* Commitment */
+  .commitment {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: #fff;
+    text-align: center;
+  }
+
+  .commitment .label {
+    background: rgba(255,255,255,0.18);
+    color: #fff;
+  }
+
+  .commitment h2 {
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    margin-bottom: 18px;
+  }
+
+  .commitment p {
+    max-width: 760px;
+    margin: 0 auto 16px;
+    opacity: 0.92;
+  }
+
+  .commitment .closing {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-top: 24px;
+    opacity: 1;
+  }
+
+  /* CTA */
+  .cta {
+    text-align: center;
+  }
+
+  .cta-box {
+    background: var(--bg-soft);
+    border-radius: 24px;
+    padding: 60px 30px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .cta-box h2 {
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    margin-bottom: 14px;
+  }
+
+  .cta-box p {
+    color: var(--muted);
+    max-width: 680px;
+    margin: 0 auto 30px;
+  }
+
+  .cta-box .highlight {
+    margin-top: 24px;
+    font-weight: 600;
+    color: var(--primary);
+  }
+
+  /* Contact */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    align-items: start;
+  }
+
+  .contact-info h3 {
+    margin-bottom: 14px;
+  }
+
+  .contact-info p {
+    color: var(--muted);
+    margin-bottom: 20px;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 18px;
+    padding: 16px 18px;
+    background: var(--bg-soft);
+    border-radius: 12px;
+    transition: transform 0.2s;
+  }
+
+  .contact-item:hover { transform: translateX(6px); }
+
+  .contact-item .c-icon {
+    font-size: 1.4rem;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    border-radius: 12px;
+    flex-shrink: 0;
+  }
+
+  .contact-item .c-text small {
+    display: block;
+    color: var(--muted);
+    font-size: 0.82rem;
+  }
+
+  .contact-item .c-text strong {
+    color: var(--text);
+    word-break: break-all;
+  }
+
+  .contact-form {
+    background: #fff;
+    padding: 34px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+  }
+
+  .form-group { margin-bottom: 18px; }
+
+  .form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 6px;
+    font-size: 0.95rem;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 13px 16px;
+    border: 1.5px solid #D5E0F0;
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+  }
+
+  .form-group textarea { min-height: 120px; resize: vertical; }
+
+  .form-success {
+    display: none;
+    color: #1B7F4B;
+    font-weight: 600;
+    margin-top: 12px;
+  }
+
+  /* Footer */
+  footer {
+    background: #0F1B2D;
+    color: #C5D0E0;
+    padding: 60px 0 24px;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 36px;
+    margin-bottom: 36px;
+  }
+
+  footer h4 {
+    color: #fff;
+    margin-bottom: 14px;
+    font-size: 1.1rem;
+  }
+
+  footer p, footer li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+
+  footer ul { list-style: none; }
+
+  footer ul a:hover { color: #fff; }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 22px;
+    text-align: center;
+    font-size: 0.88rem;
+  }
+
+  .footer-bottom .tagline-footer {
+    color: var(--accent);
+    margin-top: 6px;
+    font-weight: 600;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .menu-toggle { display: block; }
+
+    .nav-links {
+      position: absolute;
+      top: 70px;
+      left: 0; right: 0;
+      background: #fff;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      padding: 10px 0;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+      display: none;
+    }
+
+    .nav-links.open { display: flex; }
+
+    .nav-links li { width: 100%; text-align: center; }
+
+    .nav-links a { display: block; padding: 14px; }
+
+    section { padding: 60px 0; }
+
+    .hero { padding-top: 130px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="container nav">
+    <a href="#home" class="logo">MR. MARKTER</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#process">Our Process</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- Hero -->
+<section class="hero" id="home">
+  <div class="container hero-content">
+    <span class="label">Digital Marketing Expert</span>
+    <h1>Grow Your Brand. <span>Reach More People.</span> Achieve More.</h1>
+    <p class="tagline">Creative Strategies. Professional Content. Digital Growth.</p>
+    <p>We help businesses, entrepreneurs, and personal brands build a powerful online presence through strategic digital marketing, creative content, and effective social media management.</p>
+    <div class="btn-group">
+      <a href="#contact" class="btn btn-primary">Get Started</a>
+      <a href="#services" class="btn btn-outline">Explore Our Services</a>
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section id="about">
+  <div class="container">
+    <div class="about-box">
+      <span class="label">About Us</span>
+      <h2 class="section-title">Your Partner in Digital Growth</h2>
+      <p>Welcome to Mr. Markter, your partner in digital marketing and online brand development.</p>
+      <p>We believe every business deserves an opportunity to grow online. Our goal is to help businesses, startups, educational institutions, and content creators connect with their audiences through creative strategies and professional digital solutions.</p>
+      <p>From managing social media pages to designing engaging posts and developing content strategies, we focus on helping your brand communicate effectively and build a stronger digital presence.</p>
+    </div>
+    <div class="mission-vision">
+      <div class="mv-card">
+        <h4>Our Mission</h4>
+        <p>To make digital marketing more accessible, creative, and effective for businesses of all sizes.</p>
+      </div>
+      <div class="mv-card">
+        <h4>Our Vision</h4>
+        <p>To become a trusted digital marketing brand that helps individuals and businesses grow in the digital world.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Services -->
+<section class="services" id="services">
+  <div class="container">
+    <span class="label" style="display:block; text-align:center; width:max-content; margin-left:auto; margin-right:auto;">Our Services</span>
+    <h2 class="section-title">Digital Solutions for Modern Businesses</h2>
+    <p class="section-subtitle">Everything your brand needs to shine online</p>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">📱</div>
+        <h3>Social Media Management</h3>
+        <p>Build a professional and consistent presence on Facebook, Instagram, TikTok, and other social media platforms.</p>
+        <ul>
+          <li>Social media page management</li>
+          <li>Content planning and scheduling</li>
+          <li>Post publishing</li>
+          <li>Audience engagement</li>
+          <li>Page optimization</li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">📈</div>
+        <h3>Digital Marketing</h3>
+        <p>Promote your business online with effective marketing strategies designed around your goals and target audience.</p>
+        <ul>
+          <li>Digital marketing strategy</li>
+          <li>Brand awareness campaigns</li>
+          <li>Audience targeting</li>
+          <li>Campaign planning</li>
+          <li>Online promotional strategies</li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🎨</div>
+        <h3>Graphic Design</h3>
+        <p>Make your brand stand out with creative and professional visual content.</p>
+        <ul>
+          <li>Social media post design</li>
+          <li>Promotional posters</li>
+          <li>Business advertisements</li>
+          <li>Educational posters</li>
+          <li>Branding materials</li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">✍️</div>
+        <h3>Content Creation</h3>
+        <p>Share your message with content that captures attention and communicates clearly.</p>
+        <ul>
+          <li>Social media captions</li>
+          <li>Promotional content</li>
+          <li>Educational content</li>
+          <li>News publication graphics and copy</li>
+          <li>Content calendars</li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">💡</div>
+        <h3>Brand Development</h3>
+        <p>Create a recognizable and consistent identity for your business or organization.</p>
+        <ul>
+          <li>Brand identity planning</li>
+          <li>Visual consistency</li>
+          <li>Social media branding</li>
+          <li>Business profile optimization</li>
+          <li>Creative brand communication</li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🚀</div>
+        <h3>Social Media Advertising</h3>
+        <p>Reach potential customers through planned advertising campaigns on supported social media platforms.</p>
+        <ul>
+          <li>Campaign objectives and audiences</li>
+          <li>Creative advertisements</li>
+          <li>Performance monitoring</li>
+        </ul>
+      </div>
+    </div>
+    <p class="ads-note">Advertising budgets and platform charges are separate from service fees unless otherwise agreed.</p>
+  </div>
+</section>
+
+<!-- Why Choose Us -->
+<section>
+  <div class="container">
+    <span class="label" style="display:block; text-align:center; width:max-content; margin-left:auto; margin-right:auto;">Why Choose Us</span>
+    <h2 class="section-title">Creativity Meets Strategy</h2>
+    <p class="lead-text">We understand that digital growth requires more than simply posting content. It requires planning, creativity, consistency, and a clear understanding of your audience.</p>
+
+    <div class="features">
+      <div class="feature">
+        <div class="emoji">💜</div>
+        <h4>Creative Approach</h4>
+        <p>We develop content designed to communicate your message clearly and attract attention.</p>
+      </div>
+      <div class="feature">
+        <div class="emoji">✨</div>
+        <h4>Professional Presentation</h4>
+        <p>We help your brand maintain a polished and consistent online appearance.</p>
+      </div>
+      <div class="feature">
+        <div class="emoji">🎯</div>
+        <h4>Audience-Focused Strategy</h4>
+        <p>We plan content around your business goals and the people you want to reach.</p>
+      </div>
+      <div class="feature">
+        <div class="emoji">🤝</div>
+        <h4>Reliable Communication</h4>
+        <p>We value clear communication, collaboration, and understanding our clients' needs.</p>
+      </div>
+      <div class="feature">
+        <div class="emoji">📊</div>
+        <h4>Continuous Improvement</h4>
+        <p>We use available performance insights to identify opportunities for improvement.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Who We Work With -->
+<section class="audience">
+  <div class="container">
+    <span class="label" style="display:block; text-align:center; width:max-content; margin-left:auto; margin-right:auto;">Who We Work With</span>
+    <h2 class="section-title">Digital Growth for Every Ambition</h2>
+    <p class="section-subtitle">Our services can support</p>
+    <div class="audience-tags">
+      <span class="tag">Small and medium-sized businesses</span>
+      <span class="tag">Startups and entrepreneurs</span>
+      <span class="tag">Educational institutions and academies</span>
+      <span class="tag">Local businesses and service providers</span>
+      <span class="tag">Tourism and hospitality brands</span>
+      <span class="tag">Personal brands and content creators</span>
+      <span class="tag">News and information pages</span>
+    </div>
+    <p class="audience-footer">Whether you are launching a new business or improving an existing online presence, we can help you plan your next step.</p>
+  </div>
+</section>
+
+<!-- Process -->
+<section id="process">
+  <div class="container">
+    <span class="label" style="display:block; text-align:center; width:max-content; margin-left:auto; margin-right:auto;">Our Process</span>
+    <h2 class="section-title">Simple Steps. Clear Direction.</h2>
+    <p class="section-subtitle">From first idea to lasting results</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-number">1</div>
+        <h4>Discover</h4>
+        <p>We learn about your business, audience, services, and goals.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">2</div>
+        <h4>Plan</h4>
+        <p>We develop a suitable digital marketing and content strategy.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">3</div>
+        <h4>Create</h4>
+        <p>We prepare creative designs, captions, and other content according to your requirements.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">4</div>
+        <h4>Publish</h4>
+        <p>We help organize and publish content across your selected platforms.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">5</div>
+        <h4>Review</h4>
+        <p>We review available results and identify opportunities to improve future content and campaigns.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Commitment -->
+<section class="commitment">
+  <div class="container">
+    <span class="label">Our Commitment</span>
+    <h2>Your Goals Matter to Us</h2>
+    <p>At Mr. Markter, we believe successful digital marketing starts with understanding the client.</p>
+    <p>We aim to deliver thoughtful strategies, creative content, professional communication, and solutions tailored to each project.</p>
+    <p>We do not believe in one-size-fits-all marketing. Every brand has its own story, audience, and goals.</p>
+    <p class="closing">Let's work together to tell your brand's story.</p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="container">
+    <div class="cta-box">
+      <h2>Ready to Grow Your Brand?</h2>
+      <p>Your audience is online. Let's help your brand make a stronger impression.</p>
+      <p>Whether you need social media management, creative designs, digital marketing guidance, or a content strategy, Mr. Markter is ready to discuss your goals.</p>
+      <div class="btn-group">
+        <a href="#contact" class="btn btn-primary">Contact Us</a>
+        <a href="#contact" class="btn btn-outline">Discuss Your Project</a>
+      </div>
+      <p class="highlight">Let's turn your ideas into action.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+  <div class="container">
+    <span class="label" style="display:block; text-align:center; width:max-content; margin-left:auto; margin-right:auto;">Contact Us</span>
+    <h2 class="section-title">Let's Connect</h2>
+    <p class="section-subtitle">Get in touch and tell us what you want to achieve</p>
+
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3>Have a project in mind?</h3>
+        <p>Need help managing your social media pages? Looking for professional content and creative marketing solutions? Reach out to us directly.</p>
+
+        <a class="contact-item" href="mailto:zaffarabbasshina1214@gmail.com">
+          <div class="c-icon">✉️</div>
+          <div class="c-text">
+            <small>Email</small>
+            <strong>zaffarabbasshina1214@gmail.com</strong>
+          </div>
+        </a>
+
+        <a class="contact-item" href="https://wa.me/923554801589" target="_blank" rel="noopener">
+          <div class="c-icon">💬</div>
+          <div class="c-text">
+            <small>WhatsApp</small>
+            <strong>+92 355 4801589</strong>
+          </div>
+        </a>
+
+        <a class="contact-item" href="https://www.facebook.com/profile.php?id=61585990186496" target="_blank" rel="noopener">
+          <div class="c-icon">👍</div>
+          <div class="c-text">
+            <small>Facebook</small>
+            <strong>Mr. Markter</strong>
+          </div>
+        </a>
+
+        <a class="contact-item" href="https://www.instagram.com/mr.markter05" target="_blank" rel="noopener">
+          <div class="c-icon">📸</div>
+          <div class="c-text">
+            <small>Instagram</small>
+            <strong>@mr.markter05</strong>
+          </div>
+        </a>
+
+        <div class="contact-item">
+          <div class="c-icon">📍</div>
+          <div class="c-text">
+            <small>Location</small>
+            <strong>Skardu</strong>
+          </div>
+        </div>
+      </div>
+
+      <form class="contact-form" id="contactForm">
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Tell us about your project</label>
+          <textarea id="message" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;">Send Message</button>
+        <p class="form-success" id="formSuccess">Thank you! Your message has been noted. We will get back to you soon.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>MR. MARKTER</h4>
+        <p>Digital Marketing Expert</p>
+        <p>Helping brands build a stronger online presence through digital marketing, social media management, graphic design, and content creation.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#process">Our Process</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Get In Touch</h4>
+        <p>Email: zaffarabbasshina1214@gmail.com</p>
+        <p>WhatsApp: +92 355 4801589</p>
+        <p>Location: Skardu</p>
+        <p>Instagram: @mr.markter05</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Mr. Markter. All Rights Reserved.</p>
+      <p class="tagline-footer">Building Brands for the Digital World.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+  });
+
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => navLinks.classList.remove('open'));
+  });
+
+  const form = document.getElementById('contactForm');
+  const success = document.getElementById('formSuccess');
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    success.style.display = 'block';
+    form.reset();
+    setTimeout(() => { success.style.display = 'none'; }, 5000);
+  });
+</script>
+
+</body>
+</html>
